@@ -1,0 +1,136 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+}
+
+.container, .admin-container {
+    background: #f5f7fa;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+h1 { font-size: 28px; margin-bottom: 5px; }
+
+/* === LOGIN === */
+.login-section { max-width: 400px; margin: 40px auto; padding: 20px; }
+.login-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px; }
+.login-btn { width: 100%; background: #1e3c72; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+
+/* === VOTING PAGE === */
+.voting-section { display: none; padding: 20px; max-width: 700px; margin: 0 auto; }
+.voting-section.show { display: block; }
+
+.user-info {
+    background: white; padding: 15px 20px; border-radius: 50px;
+    margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.user-info span { font-weight: bold; color: #333; }
+.user-controls { display: flex; gap: 10px; align-items: center; }
+
+/* ORANGE/GOLD CHANGE VOTE BUTTON */
+.change-vote-btn { 
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%); 
+    color: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(243, 156, 18, 0.3);
+    display: none; /* Hidden by default */
+}
+.change-vote-btn:hover { transform: translateY(-2px); }
+
+.logout-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+.logout-btn:hover { background: #c0392b; }
+
+/* === CANDIDATE LIST === */
+.candidates-list { display: flex; flex-direction: column; gap: 30px; margin-bottom: 40px; }
+
+.candidate-card {
+    background: white; border-radius: 15px; padding: 25px;
+    text-align: center; border: 3px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    width: 100%; max-width: 450px; margin: 0 auto;
+    transition: transform 0.2s;
+}
+.candidate-card:hover { transform: translateY(-5px); }
+
+/* SIMPLE IMAGE STYLE */
+.cand-photo {
+    width: 150px; height: 150px; border-radius: 50%;
+    object-fit: cover; margin-bottom: 15px; border: 5px solid #eee;
+    background-color: #ddd; 
+}
+
+.candidate-name { font-size: 26px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+
+.vote-btn-card {
+    width: 100%; padding: 12px; border: none; border-radius: 8px;
+    color: white; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;
+}
+.vote-btn-card:hover { opacity: 0.9; transform: scale(1.02); }
+.vote-btn-card:disabled { background: #ccc !important; cursor: not-allowed; opacity: 1; transform: none; }
+
+/* SPECIFIC COLORS */
+.cand-A { border-color: #e74c3c; } .cand-A .candidate-name, .cand-A .bar-label span { color: #e74c3c; } .bg-A, .cand-A .vote-btn-card { background: #e74c3c; } .cand-A .cand-photo { border-color: #e74c3c; }
+.cand-B { border-color: #3498db; } .cand-B .candidate-name, .cand-B .bar-label span { color: #3498db; } .bg-B, .cand-B .vote-btn-card { background: #3498db; } .cand-B .cand-photo { border-color: #3498db; }
+.cand-C { border-color: #2ecc71; } .cand-C .candidate-name, .cand-C .bar-label span { color: #2ecc71; } .bg-C, .cand-C .vote-btn-card { background: #2ecc71; } .cand-C .cand-photo { border-color: #2ecc71; }
+.cand-D { border-color: #e67e22; } .cand-D .candidate-name, .cand-D .bar-label span { color: #e67e22; } .bg-D, .cand-D .vote-btn-card { background: #e67e22; } .cand-D .cand-photo { border-color: #e67e22; }
+.cand-E { border-color: #9b59b6; } .cand-E .candidate-name, .cand-E .bar-label span { color: #9b59b6; } .bg-E, .cand-E .vote-btn-card { background: #9b59b6; } .cand-E .cand-photo { border-color: #9b59b6; }
+
+/* === RESULTS === */
+.results-section { background: white; padding: 25px; border-radius: 15px; margin-top: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+.bar-label { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
+.bar-wrapper { background: #eee; height: 25px; border-radius: 4px; overflow: hidden; margin-bottom: 15px; }
+.bar { height: 100%; color: white; text-align: right; padding-right: 5px; line-height: 25px; font-size: 11px; width: 0%; transition: width 0.5s; }
+
+/* === CENTER POPUP MODAL === */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6); z-index: 9999;
+    backdrop-filter: blur(2px);
+    display: none; justify-content: center; align-items: center;
+}
+
+.modal-box {
+    background: white; padding: 30px; border-radius: 15px; text-align: center;
+    max-width: 350px; width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: popupAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popupAnim {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-btns { margin-top: 25px; display: flex; justify-content: center; gap: 10px; }
+.btn-yes { background: #e74c3c; color: white; padding: 10px 25px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+.btn-cancel { background: #bdc3c7; color: #333; padding: 10px 25px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+
+/* ADMIN SPECIFIC */
+.admin-panel { display: none; padding: 20px; max-width: 1000px; margin: 0 auto; }
+.admin-panel.show { display: block; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.stat-box { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+/* Table Styles */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+th { background: #f4f4f4; }
